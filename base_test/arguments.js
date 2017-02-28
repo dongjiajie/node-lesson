@@ -50,3 +50,11 @@ function mergeRegistry(...args) {
   }
 
   console.log(pickObj({a:1,b:2,c:3}, ['a', 'b', 'd']));
+
+
+function getNewestRegistry(...args): RegistryType {
+  // get the newest registry
+  const dates = [];
+  args.forEach((arg) => { dates.push(Date.parse(arg.modifiedDate)); });
+  return args[dates.indexOf(Math.max(...dates))];
+}
