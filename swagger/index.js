@@ -36,34 +36,48 @@ server.register([
 
 server.route([
 	{
-	    method: 'GET',
-	    path: '/{name}',
-	    config: {
-	        handler: function (request, reply) {
-	        	reply('Hello World.I am ' + request.params.name);
-	        },
-	        description: 'Say Hello',
-	        notes: 'Say hello to world and return your name.',
-	        tags: ['api', 'get_name'],
-	        validate: {
-	            params: {
-	                name : Joi.string()
-	                        .required()
-	                        .description('the name of yourself'),
-	            }
-	        }
-	    },
+    method: 'GET',
+    path: '/{name}',
+    config: {
+      handler: function (request, reply) {
+      	reply('Hello World.I am ' + request.params.name);
+      },
+      description: 'Say Hello',
+      notes: 'Say hello to world and return your name.',
+      tags: ['api', 'get_name'],
+      validate: {
+        params: {
+          name : Joi.string()
+                  .required()
+                  .description('the name of yourself'),
+        }
+      }
+    },
 	},
 	{
-	    method: 'POSt',
-	    path: '/post',
-	    config: {
-	        handler: function (request, reply) {
-	        	reply('I am POST.');
-	        },
-	        description: 'POST method',
-	        notes: 'Return http method name',
-	        tags: ['api', 'post_method'],
-	    },
+    method: 'POSt',
+    path: '/post',
+    config: {
+      handler: function (request, reply) {
+      	reply('I am POST.');
+      },
+      description: 'POST method',
+      notes: 'Return http method name',
+      tags: ['api', 'post_method'],
+    },
+	},
+	{
+    method: 'GET',
+    path: '/search',
+    config: {
+      handler: function (request, reply) {
+      	const val = request.query.name;
+      	console.log(request.query);
+      	reply(`Query: ${val}`);
+      },
+      description: 'Search by url parameters',
+      notes: 'Seach',
+      tags: ['api'],
+    },
 	}
 	]);
