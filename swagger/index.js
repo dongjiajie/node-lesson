@@ -79,5 +79,39 @@ server.route([
       notes: 'Seach',
       tags: ['api'],
     },
-	}
+	},
+  {
+    method: 'POST',
+    path: '/items',
+    config: {
+        handler: (request, reply) => { reply('OK'); },
+        tags: ['api'],
+        validate: {
+            payload: Joi.object({
+                a: Joi.number(),
+                b: Joi.number()
+            })
+        }
+    }
+  },
+  {
+    method: 'GET',
+    path: '/items/{pageNo}',
+    config: {
+        handler: (request, reply) => { reply('OK'); },
+        tags: ['api'],
+        validate: {
+            params: {
+                pageNo: Joi.number()
+            },
+            query: {
+                search: Joi.string()
+            },
+            headers: Joi.object({
+                'authorization': Joi.string().required()
+            }).unknown()
+        }
+
+    }
+}
 	]);
