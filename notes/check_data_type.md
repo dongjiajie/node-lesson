@@ -1,4 +1,4 @@
-```
+```javascript
 if( value ) {}
 ```
 return `true`,when value:
