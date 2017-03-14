@@ -1,5 +1,6 @@
-
-## aggregations of query
+## Elasticsearch中实现分组统计
+---
+### aggregations of query
 ```
 {
   "query": {
@@ -24,7 +25,7 @@
 }
 ```
 
-## aggregations of array
+### aggregations of array
 ```
 {
   "aggs": {
@@ -44,7 +45,7 @@
   "size": 0
 }
 ```
-## aggregations by price range 
+### aggregations by price range
 ```
 {
   "aggregations": {
@@ -80,8 +81,8 @@
   "size": 0
 }
 ```
-###
 
+### aggregations of nested value
 ```
 {
   "aggregations": {
