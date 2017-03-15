@@ -17,11 +17,20 @@ class Utils {
     if (value !== null && typeof value === 'object') {
       value = Utils.toCamel(value);
     }
-    newObject[origKey.replace(/(\_\w)/g, function(m){return m[1].toUpperCase();})] = value;
+    // /(_\w)/g
+    newObject[origKey.replace(/(_\w)/g, function(m){return m[1].toUpperCase();})] = value;
   });
   return newObject;
 }
 }
 
-const res = Utils.toCamel({snake_case: 'aa', snake_case2: [{case_for_array: 'a'}], case_for_obj: {hello_world: 'b'}})  
+const target = { retailer_product_id: '10005-440201887008',
+         number_requested: 4,
+         number_received: 0,
+         price: 135,
+         sales_price: null,
+         date_fulfilled: null,
+         product_url: null }
+
+const res = Utils.toCamel(target)
 console.log(res);
