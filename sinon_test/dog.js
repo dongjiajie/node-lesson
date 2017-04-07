@@ -1,10 +1,12 @@
+const People = require('./people');
+const people = new People();
+
 class Dog {
-	constructor() {
-		this.name = 'small white';
-	}
-	showName() {
-		console.log(this.name);
+	static dogName() {
+		const res = people.showName('samll dog.');
+		console.log(res);
 	}
 }
 
 module.exports = Dog;
+// Dog.dogName()

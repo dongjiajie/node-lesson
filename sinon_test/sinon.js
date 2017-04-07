@@ -1,10 +1,11 @@
-function once(fn) {
-	var returenValue, called = false;
-	return function(){
-		if(!called){
-			called = true;
-			returnValue = fn.apply(this, arguments);
-		}
-		return returnValue;
-	};
-}
+const sinon = require('sinon');
+const Dog = require('./dog');
+const People = require('./people');
+const people = new People();
+
+const mock = sinon.mock(people);
+
+mock.expects('showName').returns('aa');
+
+console.log(people.showName());
+console.log(mock.verify());
