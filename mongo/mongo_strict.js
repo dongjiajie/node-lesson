@@ -5,12 +5,19 @@ const PersonSchema = new Schema({}, {
     strict: true
 });
 
+const FoodSchema = new Schema({
+  name: String,
+  count: Number
+})
+
 const Person = mongoose.model('Person', PersonSchema);
+const Food = mongoose.model('Food', FoodSchema);
 
 mongoose.connect('mongodb://localhost:/test', function(err) {
   if (err) console.log(err.message);
   console.log('Connected');
   
+  // strict option
   Person.collection.insert({
     name: 'Dog',
     content: 'Hello World',
@@ -30,4 +37,18 @@ mongoose.connect('mongodb://localhost:/test', function(err) {
   	console.log('find by Id:');
   	console.log(res);
   })
+
+  // insert data with un-match key in schema
+  Food.collection.insert({
+    name: 'apple',
+    count: 10,
+    price: 5.5
+  }, (err, res) => {
+    console.log(res);
+  });
+
+  Food.findOne({name: 'apple'}, (err, res) => {
+    console.log(res);
+  });
+
 });
