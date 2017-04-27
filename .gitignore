@@ -1,5 +1,8 @@
 /src
+logger/node_modules
 /node_modules
 /.vscode
 .DS_Store
 flow_test/node_modules/
+*/logs
+*.logs

@@ -5,7 +5,8 @@ const uri = 'https://endpoint2.collection.us2.sumologic.com/receiver/v1/http/ZaV
 
 server.connection({
   host: 'localhost',
-  port: 3000
+  port: 3000,
+  routes: { log: true }
 })
 
 // server.route({
@@ -47,9 +48,11 @@ const goodOptions = {
       module: 'good-http',
       args: [uri, {
         wreck: {
-          threshold: 1
+          headers: {
+            'content-type': 'application/json'
+          }
         },
-        threshold: 1
+        threshold: 1,
       }]
     }]
   }
@@ -62,13 +65,23 @@ server.register({
   if (err) return console.error(err)
 })
 
-server.register({
-  register: require('./info')
-})
+// server.register({
+//   register: require('./info')
+// })
 
 server.register({
   register: require('./base-routes')
 })
+
+// server.ext('onRequest', function (request, reply) {
+//   // request.log(['info', 'test', 'error'], 'I am a test.');
+//   request.log(['info'], request)
+//   return reply.continue();
+// });
+
+// onPreResponse
+// server.ext('onPreResponse', require('./info'));
+
 
 server.start((err) => {
   if (err) throw err

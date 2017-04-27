@@ -1,5 +1,5 @@
 const Elasticsearch = require('elasticsearch');
-const dbClient = new Elasticsearch.Client({ host: 'registry:reguser123@lb-qa-elasticsearch-20170317-1743847226.us-east-1.elb.amazonaws.com:8080' });
+const dbClient = new Elasticsearch.Client({ host: 'http://registry:reguser123@qa-es.regsvcs.theknot.com' });
 
 const id = '945d448a-9920-4381-aa9d-212325e15952';
 
@@ -33,6 +33,35 @@ async function getCoupleByQuery(id) {
 	console.log(res);
 }
 
+async function getCoupleBySearch() {
+	const res = await dbClient.search({
+		index: 'couple',
+		type: 'couple',
+		body: {
+			query: {
+				bool: {
+					must: [
+						{
+							term: {
+								coupleId: 196507
+							}
+						},
+						{
+							term: {
+								eventTypeId: 1
+							}
+						}
+					]
+				}
+			}
+		}
+	});
+	console.log(res);
+	console.log('----');
+	console.log(res.hits.hits[0]);
+}
+
 // asyncGetCoupleById(id);
 // getCoupleById(id);
-getCoupleByQuery(id);
+// getCoupleByQuery(id);
+getCoupleBySearch();
