@@ -4,5 +4,7 @@
 	    asyncGenerators: false,
       generators: false,
       async: false
-	}]]
+	}],
+	["transform-object-rest-spread"]
+	]
 }
