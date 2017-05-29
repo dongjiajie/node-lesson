@@ -39,6 +39,7 @@
     "joi-generate": "^0.2.0",
     "jsonwebtoken": "^7.3.0",
     "lab": "^12.1.0",
+    "mocha": "^3.4.1",
     "moment": "^2.17.1",
     "mongodb": "^2.2.25",
     "mongoose": "^4.9.1",
@@ -50,6 +51,7 @@
   },
   "devDependencies": {
     "babel-plugin-syntax-async-functions": "^6.13.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-plugin-transform-regenerator": "^6.22.0",
     "babel-preset-es2016": "^6.22.0",
     "babel-preset-es2017": "^6.22.0"

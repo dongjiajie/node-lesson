@@ -4,7 +4,7 @@ const baseRoutes = {
       method: 'GET',
       path: '/',
       handler: (request, reply) => {
-        // console.log(request)
+        // request.log(['info', 'test', 'error'], 'Test event');
         reply('Hello World!')
       }
     })

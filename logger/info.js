@@ -1,13 +1,11 @@
-const info = {
-  register: (server, request, next) => {
-    console.log(request)
-    next()
-  }
+const sumologic = require('./sumologic');
+
+class Info {
+	static error(message) {
+		const newMessage = `[${new Date()} - error] ${message}`
+		console.log(newMessage);
+		sumologic(message)
+	}
 }
 
-info.register.attributes = {
-  name: 'info',
-  version: '1.0.0'
-}
-
-module.exports = info
+module.exports = Info;
