@@ -35,6 +35,7 @@
     "hapi-swagger": "^7.7.0",
     "hapi-swaggered": "^2.9.0",
     "hapi-swaggered-ui": "^2.6.0",
+    "http": "0.0.0",
     "inert": "^4.1.0",
     "joi": "^10.2.2",
     "joi-generate": "^0.2.0",
