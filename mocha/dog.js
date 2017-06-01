@@ -1,8 +1,21 @@
-require('./index')
-const mocha = require('mocha');
+const promise = new Promise(function(resolve){
+    resolve(42);
+});
 
-describe('I am a describe', () => {
-	it('I am a it', (done) => {
-		done();
+// promise.then(function(value){
+//     console.log(value);
+// }).catch(function(error){
+//     console.error(error);
+// });
+
+function dog() {
+	return new Promise((resolve, reject) => {
+    resolve('small_white');
 	})
-})
+}
+
+// dog().then((value) => {
+// 	console.log(value);
+// })
+
+module.exports = dog;
