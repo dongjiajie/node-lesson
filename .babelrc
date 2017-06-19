@@ -5,6 +5,7 @@
       generators: false,
       async: false
 	}],
-	["transform-object-rest-spread"]
+	["transform-object-rest-spread"],
+	"transform-flow-strip-types"
 	]
 }
