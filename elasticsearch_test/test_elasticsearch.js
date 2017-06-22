@@ -35,20 +35,16 @@ async function getCoupleByQuery(id) {
 
 async function getCoupleBySearch() {
 	const res = await dbClient.search({
-		index: 'couple',
+		index: 'couple_20170619',
 		type: 'couple',
+		_source: true,
 		body: {
 			query: {
 				bool: {
 					must: [
 						{
 							term: {
-								coupleId: 196507
-							}
-						},
-						{
-							term: {
-								eventTypeId: 1
+								firstName: 'test'
 							}
 						}
 					]
