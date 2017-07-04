@@ -8,5 +8,4 @@ function show() {
 	return result
 }
 
-
 console.log(show())
